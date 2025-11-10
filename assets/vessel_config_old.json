@@ -1,0 +1,156 @@
+{
+  "coordinate_system": {
+    "origin": "geometric_center_at_waterline",
+    "axes": { "x_forward": true, "y_starboard": true, "z_up": true },
+    "angles": { "zero_deg": "dead_ahead", "direction": "clockwise_viewed_from_above" }
+  },
+
+  "hull_parameters": {
+    "L": "overall_length_m",
+    "B": "beam_m",
+    "H": "reference_superstructure_height_m"
+  },
+
+  "common_light_defs": {
+    "colors": {
+      "white": "#FFFFFF",
+      "red":   "#FF0000",
+      "green": "#00FF00",
+      "yellow":"#FFFF00"
+    },
+    "modes": {
+      "steady": { "type": "steady", "flash_period_s": null, "duty_cycle": null },
+      "flashing_50": { "type": "flashing", "flash_period_s": 1.2, "duty_cycle": 0.5 },
+      "special_flashing_yellow": { "type": "flashing", "flash_rate_per_min": 120, "color": "yellow" }
+    },
+    "intensity_hint_nm": {
+      "typical_12_to_50m": {
+        "masthead": 5,
+        "sidelights": 2,
+        "stern": 2,
+        "all_round": 2
+      }
+    }
+  },
+
+  "vessels": {
+    "power_driven_underway_upto_50m": {
+      "notes": [
+        "Second masthead light is optional under 50 m (may be carried).",
+        "Sidelights must be below the masthead; green to starboard, red to port."
+      ],
+      "lights": [
+        {
+          "id": "masthead_forward",
+          "name": "Masthead (forward)",
+          "color": "white",
+          "mode": "steady",
+          "sector_deg": { "start": -112.5, "end": 112.5 },
+          "position_expr": { "x": 0.30, "y": 0.0, "z": 0.10 },
+          "position_units": "fractions_of_{L,B,H}",
+          "position_of": { "x_of": "L", "y_of": "B", "z_of": "H" },
+          "mounting_hint": "above all other lights, unobstructed"
+        },
+        {
+          "id": "sidelight_starboard",
+          "name": "Starboard sidelight",
+          "color": "green",
+          "mode": "steady",
+          "sector_deg": { "start": -112.5, "end": 0.0 },
+          "position_expr": { "x": 0.20, "y": 0.50, "z": 0.02 },
+          "position_units": "fractions_of_{L,B,H}",
+          "position_of": { "x_of": "L", "y_of": "B", "z_of": "H" }
+        },
+        {
+          "id": "sidelight_port",
+          "name": "Port sidelight",
+          "color": "red",
+          "mode": "steady",
+          "sector_deg": { "start": 0.0, "end": 112.5 },
+          "position_expr": { "x": 0.20, "y": -0.50, "z": 0.02 },
+          "position_units": "fractions_of_{L,B,H}",
+          "position_of": { "x_of": "L", "y_of": "B", "z_of": "H" }
+        },
+        {
+          "id": "sternlight",
+          "name": "Sternlight",
+          "color": "white",
+          "mode": "steady",
+          "sector_deg": { "start": 112.5, "end": 247.5 },
+          "position_expr": { "x": -0.45, "y": 0.0, "z": 0.06 },
+          "position_units": "fractions_of_{L,B,H}",
+          "position_of": { "x_of": "L", "y_of": "B", "z_of": "H" }
+        },
+        {
+          "id": "optional_second_masthead",
+          "name": "Masthead (aft, optional)",
+          "required": false,
+          "color": "white",
+          "mode": "steady",
+          "sector_deg": { "start": -112.5, "end": 112.5 },
+          "position_expr": { "x": -0.05, "y": 0.0, "z": 0.18 },
+          "position_units": "fractions_of_{L,B,H}",
+          "position_of": { "x_of": "L", "y_of": "B", "z_of": "H" }
+        }
+      ]
+    },
+
+    "sailing_underway_upto_50m": {
+      "notes": [
+        "Sailing vessel (no engine in use). If engine is also used: treat as power-driven plus day shape cone.",
+        "Instead of separate sidelights and sternlight, a masthead tricolor may be used (optional, typically on small yachts)."
+      ],
+      "lights": [
+        {
+          "id": "sidelight_starboard",
+          "name": "Starboard sidelight",
+          "color": "green",
+          "mode": "steady",
+          "sector_deg": { "start": -112.5, "end": 0.0 },
+          "position_expr": { "x": 0.20, "y": 0.50, "z": 0.02 },
+          "position_units": "fractions_of_{L,B,H}",
+          "position_of": { "x_of": "L", "y_of": "B", "z_of": "H" }
+        },
+        {
+          "id": "sidelight_port",
+          "name": "Port sidelight",
+          "color": "red",
+          "mode": "steady",
+          "sector_deg": { "start": 0.0, "end": 112.5 },
+          "position_expr": { "x": 0.20, "y": -0.50, "z": 0.02 },
+          "position_units": "fractions_of_{L,B,H}",
+          "position_of": { "x_of": "L", "y_of": "B", "z_of": "H" }
+        },
+        {
+          "id": "sternlight",
+          "name": "Sternlight",
+          "color": "white",
+          "mode": "steady",
+          "sector_deg": { "start": 112.5, "end": 247.5 },
+          "position_expr": { "x": -0.45, "y": 0.0, "z": 0.06 },
+          "position_units": "fractions_of_{L,B,H}",
+          "position_of": { "x_of": "L", "y_of": "B", "z_of": "H" }
+        }
+      ]
+    },
+
+    "anchored_upto_50m": {
+      "notes": [
+        "One all-round white 360° at the best visible position.",
+        "≥ 50 m: two all-round whites (forward higher, aft lower) — not required here."
+      ],
+      "lights": [
+        {
+          "id": "all_round_anchor",
+          "name": "All-round white anchor light",
+          "color": "white",
+          "mode": "steady",
+          "sector_deg": { "start": 0, "end": 360 },
+          "position_expr": { "x": 0.10, "y": 0.0, "z": 0.20 },
+          "position_units": "fractions_of_{L,B,H}",
+          "position_of": { "x_of": "L", "y_of": "B", "z_of": "H" }
+        }
+      ]
+    }
+  }
+}

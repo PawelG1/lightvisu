@@ -1,0 +1,131 @@
+{
+  "quizzes": [
+    {
+      "id": "colreg_basics",
+      "title": "COLREG - Collision Avoidance Rules",
+      "description": "Basic questions about maritime collision avoidance rules",
+      "questions": [
+        {
+          "id": "q1",
+          "question": "What color is the starboard sidelight?",
+          "options": [
+            "Red",
+            "Green",
+            "White",
+            "Yellow"
+          ],
+          "correct_answer": 1,
+          "explanation": "According to COLREG Rule 23, the starboard sidelight must be green."
+        },
+        {
+          "id": "q2",
+          "question": "What is the maximum horizontal range of a masthead light?",
+          "options": [
+            "2 nautical miles",
+            "3 nautical miles",
+            "5 nautical miles",
+            "10 nautical miles"
+          ],
+          "correct_answer": 2,
+          "explanation": "For vessels up to 50m, the masthead light range is typically 5 nautical miles."
+        },
+        {
+          "id": "q3",
+          "question": "At what angle does an all-round light shine?",
+          "options": [
+            "180 degrees",
+            "270 degrees",
+            "360 degrees",
+            "90 degrees"
+          ],
+          "correct_answer": 2,
+          "explanation": "An all-round light shines in all directions - 360 degrees."
+        },
+        {
+          "id": "q4",
+          "question": "What does a power-driven vessel display when underway?",
+          "options": [
+            "Only sidelights",
+            "Masthead light, sidelights, and sternlight",
+            "Only masthead light",
+            "White light only"
+          ],
+          "correct_answer": 1,
+          "explanation": "A power-driven vessel underway displays a masthead light, sidelights (red and green), and a sternlight."
+        },
+        {
+          "id": "q5",
+          "question": "Which color is the port sidelight?",
+          "options": [
+            "Green",
+            "Red",
+            "White",
+            "Yellow"
+          ],
+          "correct_answer": 1,
+          "explanation": "According to COLREG Rule 23, the port sidelight must be red."
+        },
+        {
+          "id": "q6",
+          "question": "A vessel not under command displays how many red all-round lights?",
+          "options": [
+            "One",
+            "Two",
+            "Three",
+            "Four"
+          ],
+          "correct_answer": 1,
+          "explanation": "A vessel not under command displays two red all-round lights in a vertical line."
+        },
+        {
+          "id": "q7",
+          "question": "What does the sternlight show?",
+          "options": [
+            "Forward 112.5 degrees",
+            "Abaft the beam 135 degrees",
+            "All-round 360 degrees",
+            "Only port side"
+          ],
+          "correct_answer": 1,
+          "explanation": "The sternlight shows abaft the beam - 135 degrees (112.5 degrees on each side of the stern)."
+        },
+        {
+          "id": "q8",
+          "question": "At anchor, a vessel displays which lights?",
+          "options": [
+            "No lights required",
+            "One all-round white light",
+            "Red and green sidelights",
+            "Masthead light only"
+          ],
+          "correct_answer": 1,
+          "explanation": "A vessel at anchor displays one all-round white light (for vessels under 50m) at the best visible position."
+        },
+        {
+          "id": "q9",
+          "question": "A fishing vessel trawling displays lights in what pattern?",
+          "options": [
+            "Green over white vertically",
+            "Red over green vertically",
+            "Green over red vertically",
+            "White over red vertically"
+          ],
+          "correct_answer": 2,
+          "explanation": "A fishing vessel engaged in trawling displays green all-round light above a white all-round light in vertical line."
+        },
+        {
+          "id": "q10",
+          "question": "What is the purpose of the BOW arrow indicator?",
+          "options": [
+            "Show the vessel's speed direction",
+            "Indicate the vessel's heading and bow position",
+            "Show the current wind direction",
+            "Indicate the location of anchor"
+          ],
+          "correct_answer": 1,
+          "explanation": "The BOW arrow shows the front (bow) of the vessel and indicates its heading direction."
+        }
+      ]
+    }
+  ]
+}
