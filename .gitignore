@@ -47,10 +47,17 @@ app.*.map.json
 # SECURITY: Android signing keys (NEVER commit these!)
 android/key.jks
 android/key.properties
+android/**/*.jks
+android/**/*.keystore
 
-# iOS certificates and provisioning profiles (if used)
-ios/*.mobileprovision
-ios/*.p12
-ios/*.cer
-key.properties
-key.jks
+# iOS certificates and provisioning profiles (NEVER commit these!)
+ios/**/*.mobileprovision
+ios/**/*.p12
+ios/**/*.cer
+ios/**/*.keychain*
+ios/**/*.private_key
+
+# Backup keystore files
+*.jks.bak
+*.keystore.bak
+key.properties.bak
