@@ -126,6 +126,493 @@
           "explanation": "The BOW arrow shows the front (bow) of the vessel and indicates its heading direction."
         }
       ]
+    },
+    {
+      "id": "stcw_standards",
+      "title": "STCW - Training & Certification Standards",
+      "description": "Questions about STCW Convention requirements for seafarers",
+      "questions": [
+        {
+          "id": "s1",
+          "question": "What does STCW stand for?",
+          "options": [
+            "Standards of Training, Certification and Watchkeeping",
+            "Safety Training for Crew and Watchmen",
+            "Ship Training and Certification Worldwide",
+            "Standards of Technical Certification for Watchkeeping"
+          ],
+          "correct_answer": 0,
+          "explanation": "STCW stands for Standards of Training, Certification and Watchkeeping for Seafarers."
+        },
+        {
+          "id": "s2",
+          "question": "What is the minimum rest period required in any 24-hour period?",
+          "options": [
+            "8 hours",
+            "10 hours",
+            "12 hours",
+            "14 hours"
+          ],
+          "correct_answer": 1,
+          "explanation": "STCW requires minimum 10 hours of rest in any 24-hour period."
+        },
+        {
+          "id": "s3",
+          "question": "How often must Basic Safety Training be refreshed?",
+          "options": [
+            "Every year",
+            "Every 2 years",
+            "Every 5 years",
+            "It does not require refreshing"
+          ],
+          "correct_answer": 2,
+          "explanation": "Basic Safety Training certificates are valid for 5 years and must be refreshed."
+        },
+        {
+          "id": "s4",
+          "question": "What is the maximum work hours in any seven-day period?",
+          "options": [
+            "56 hours",
+            "72 hours",
+            "84 hours",
+            "98 hours"
+          ],
+          "correct_answer": 1,
+          "explanation": "STCW limits work hours to maximum 72 hours in any seven-day period."
+        },
+        {
+          "id": "s5",
+          "question": "Which certificate is required for all seafarers?",
+          "options": [
+            "Master's License",
+            "Basic Safety Training (BST)",
+            "Advanced Fire Fighting",
+            "GMDSS Certificate"
+          ],
+          "correct_answer": 1,
+          "explanation": "Basic Safety Training (BST) is mandatory for all seafarers under STCW."
+        },
+        {
+          "id": "s6",
+          "question": "What is the minimum age for an Officer in Charge of a Watch (OICNW)?",
+          "options": [
+            "18 years",
+            "19 years",
+            "21 years",
+            "25 years"
+          ],
+          "correct_answer": 0,
+          "explanation": "The minimum age for OICNW qualification is 18 years according to STCW."
+        },
+        {
+          "id": "s7",
+          "question": "How many elements are in Basic Safety Training?",
+          "options": [
+            "Two",
+            "Three",
+            "Four",
+            "Five"
+          ],
+          "correct_answer": 2,
+          "explanation": "BST consists of four elements: Personal Survival Techniques, Fire Prevention and Fire Fighting, Elementary First Aid, and Personal Safety and Social Responsibilities."
+        },
+        {
+          "id": "s8",
+          "question": "What is the minimum period of seagoing service for Master certification?",
+          "options": [
+            "12 months",
+            "24 months",
+            "36 months",
+            "48 months"
+          ],
+          "correct_answer": 2,
+          "explanation": "A minimum of 36 months (3 years) seagoing service is typically required for Master certification under STCW."
+        },
+        {
+          "id": "s9",
+          "question": "Which chapter of STCW covers radio operators?",
+          "options": [
+            "Chapter II",
+            "Chapter III",
+            "Chapter IV",
+            "Chapter V"
+          ],
+          "correct_answer": 2,
+          "explanation": "Chapter IV of STCW Convention covers standards for radio operators and GMDSS requirements."
+        },
+        {
+          "id": "s10",
+          "question": "What must be recorded in the seafarer's Record of Rest Hours?",
+          "options": [
+            "Only work hours",
+            "Only rest hours",
+            "Both work and rest hours",
+            "Overtime hours only"
+          ],
+          "correct_answer": 2,
+          "explanation": "The Record of Rest Hours must document both work and rest periods to ensure STCW compliance."
+        },
+        {
+          "id": "s11",
+          "question": "What is the validity period of a Medical Fitness Certificate?",
+          "options": [
+            "1 year",
+            "2 years",
+            "5 years",
+            "10 years"
+          ],
+          "correct_answer": 1,
+          "explanation": "Medical Fitness Certificates are typically valid for 2 years, though for seafarers over 18 years may be shorter."
+        },
+        {
+          "id": "s12",
+          "question": "Which STCW chapter covers standards for Masters and Deck Officers?",
+          "options": [
+            "Chapter I",
+            "Chapter II",
+            "Chapter III",
+            "Chapter IV"
+          ],
+          "correct_answer": 1,
+          "explanation": "Chapter II of STCW covers standards of competence for Masters and Deck Department officers."
+        },
+        {
+          "id": "s13",
+          "question": "What does GMDSS stand for?",
+          "options": [
+            "Global Marine Distress Safety System",
+            "Global Maritime Distress and Safety System",
+            "General Maritime Defense and Safety System",
+            "Global Marine Defense Safety Service"
+          ],
+          "correct_answer": 1,
+          "explanation": "GMDSS stands for Global Maritime Distress and Safety System."
+        },
+        {
+          "id": "s14",
+          "question": "How long can rest hours be divided into at most?",
+          "options": [
+            "One period only",
+            "Two periods, one at least 6 hours",
+            "Three periods maximum",
+            "Four periods maximum"
+          ],
+          "correct_answer": 1,
+          "explanation": "Rest hours may be divided into no more than two periods, one of which must be at least 6 hours in length."
+        },
+        {
+          "id": "s15",
+          "question": "What is the minimum seagoing service required for Chief Mate?",
+          "options": [
+            "12 months",
+            "18 months",
+            "24 months",
+            "36 months"
+          ],
+          "correct_answer": 2,
+          "explanation": "Chief Mate typically requires 24 months of seagoing service as an officer in charge of a navigational watch."
+        },
+        {
+          "id": "s16",
+          "question": "Which certificate allows operation of survival craft and rescue boats?",
+          "options": [
+            "BST",
+            "PSCRB (Proficiency in Survival Craft and Rescue Boats)",
+            "Advanced Fire Fighting",
+            "Medical First Aid"
+          ],
+          "correct_answer": 1,
+          "explanation": "PSCRB certificate is required to take charge of survival craft and rescue boats."
+        },
+        {
+          "id": "s17",
+          "question": "What does ISM Code stand for?",
+          "options": [
+            "International Safety Management",
+            "Internal Ship Management",
+            "International Standards for Marines",
+            "Integrated Safety Measures"
+          ],
+          "correct_answer": 0,
+          "explanation": "ISM stands for International Safety Management Code."
+        },
+        {
+          "id": "s18",
+          "question": "How often must Emergency Drills be conducted on board?",
+          "options": [
+            "Daily",
+            "Weekly",
+            "Monthly",
+            "Quarterly"
+          ],
+          "correct_answer": 2,
+          "explanation": "Emergency drills (fire and abandon ship) must be conducted at least monthly according to SOLAS/STCW."
+        },
+        {
+          "id": "s19",
+          "question": "What is the minimum qualification for Engine Room Watch?",
+          "options": [
+            "OICEW (Officer in Charge of Engineering Watch)",
+            "Rating forming part of engineering watch",
+            "Chief Engineer",
+            "Second Engineer"
+          ],
+          "correct_answer": 1,
+          "explanation": "Ratings forming part of an engineering watch must meet STCW Chapter III standards."
+        },
+        {
+          "id": "s20",
+          "question": "Which chapter covers standards for Engine Officers?",
+          "options": [
+            "Chapter II",
+            "Chapter III",
+            "Chapter IV",
+            "Chapter V"
+          ],
+          "correct_answer": 1,
+          "explanation": "Chapter III of STCW covers standards of competence for Engine Department officers."
+        },
+        {
+          "id": "s21",
+          "question": "What is the purpose of STCW Section A-VIII/1?",
+          "options": [
+            "Fitness requirements",
+            "Standards for watchkeeping",
+            "Tanker training requirements",
+            "Security awareness"
+          ],
+          "correct_answer": 1,
+          "explanation": "Section A-VIII/1 specifies fitness for duty and watchkeeping arrangements."
+        },
+        {
+          "id": "s22",
+          "question": "How many types of tankers require specialized training under STCW?",
+          "options": [
+            "Two (oil and chemical)",
+            "Three (oil, chemical, and gas)",
+            "Four (oil, chemical, gas, and LNG)",
+            "Five"
+          ],
+          "correct_answer": 1,
+          "explanation": "STCW requires specialized training for oil tankers, chemical tankers, and liquefied gas tankers."
+        },
+        {
+          "id": "s23",
+          "question": "What is Bridge Resource Management (BRM)?",
+          "options": [
+            "Managing fuel resources",
+            "Effective use of all available bridge resources",
+            "Managing cargo operations",
+            "Budget management"
+          ],
+          "correct_answer": 1,
+          "explanation": "BRM is the effective use and coordination of all available resources on the bridge, including personnel, equipment, and information."
+        },
+        {
+          "id": "s24",
+          "question": "What does ECDIS stand for?",
+          "options": [
+            "Electronic Chart Display and Information System",
+            "Emergency Coordination Display Information Service",
+            "Electronic Communication and Data Integration System",
+            "Engine Control Display Interface System"
+          ],
+          "correct_answer": 0,
+          "explanation": "ECDIS stands for Electronic Chart Display and Information System."
+        },
+        {
+          "id": "s25",
+          "question": "What is the minimum rest period between work periods?",
+          "options": [
+            "4 hours",
+            "6 hours",
+            "8 hours",
+            "10 hours"
+          ],
+          "correct_answer": 1,
+          "explanation": "The interval between consecutive rest periods must not exceed 14 hours, and minimum 6 hours rest in one period is required."
+        },
+        {
+          "id": "s26",
+          "question": "Which STCW chapter covers Ship Security Officers?",
+          "options": [
+            "Chapter V",
+            "Chapter VI",
+            "Chapter VII",
+            "Chapter VIII"
+          ],
+          "correct_answer": 1,
+          "explanation": "Chapter VI of STCW covers emergency, occupational safety, security, medical care and survival functions."
+        },
+        {
+          "id": "s27",
+          "question": "What does MLC stand for in maritime context?",
+          "options": [
+            "Maritime Labor Convention",
+            "Marine Loading Certificate",
+            "Master's License Certification",
+            "Maritime Legal Code"
+          ],
+          "correct_answer": 0,
+          "explanation": "MLC stands for Maritime Labour Convention, which complements STCW requirements."
+        },
+        {
+          "id": "s28",
+          "question": "How often must fire fighting drills include starting of fire pumps?",
+          "options": [
+            "Every drill",
+            "Weekly",
+            "Monthly",
+            "Quarterly"
+          ],
+          "correct_answer": 0,
+          "explanation": "Every fire drill must include the starting of a fire pump using at least two required jets of water."
+        },
+        {
+          "id": "s29",
+          "question": "What is ARPA?",
+          "options": [
+            "Automatic Radar Plotting Aid",
+            "Advanced Radio Protocol Analyzer",
+            "Automatic Route Planning Algorithm",
+            "Advanced Rescue Procedure Action"
+          ],
+          "correct_answer": 0,
+          "explanation": "ARPA stands for Automatic Radar Plotting Aid, used for collision avoidance."
+        },
+        {
+          "id": "s30",
+          "question": "What is the purpose of the Manila Amendments 2010?",
+          "options": [
+            "To increase crew salaries",
+            "To comprehensively revise STCW standards",
+            "To reduce training requirements",
+            "To eliminate medical certificates"
+          ],
+          "correct_answer": 1,
+          "explanation": "The Manila Amendments 2010 comprehensively revised the STCW Convention, introducing new requirements and updating existing standards."
+        },
+        {
+          "id": "s31",
+          "question": "Which competency table covers OICNW (Officer in Charge of Navigational Watch)?",
+          "options": [
+            "Table A-II/1",
+            "Table A-II/2",
+            "Table A-III/1",
+            "Table A-IV/2"
+          ],
+          "correct_answer": 0,
+          "explanation": "Table A-II/1 in STCW Code specifies the minimum standard of competence for OICNW."
+        },
+        {
+          "id": "s32",
+          "question": "What is required for revalidation of certificates?",
+          "options": [
+            "Only passing an exam",
+            "Seagoing service and/or approved training",
+            "Payment of fees only",
+            "No revalidation required"
+          ],
+          "correct_answer": 1,
+          "explanation": "Certificate revalidation requires evidence of seagoing service and/or completion of approved refresher training."
+        },
+        {
+          "id": "s33",
+          "question": "What does COP mean in STCW context?",
+          "options": [
+            "Certificate of Proficiency",
+            "Code of Practice",
+            "Chief Officer's Position",
+            "Cargo Operations Procedure"
+          ],
+          "correct_answer": 0,
+          "explanation": "COP stands for Certificate of Proficiency, issued for specific competencies."
+        },
+        {
+          "id": "s34",
+          "question": "What is Crowd Management training required for?",
+          "options": [
+            "All cargo ships",
+            "Passenger ships only",
+            "Tankers only",
+            "Fishing vessels"
+          ],
+          "correct_answer": 1,
+          "explanation": "Crowd Management training is specifically required for personnel serving on passenger ships."
+        },
+        {
+          "id": "s35",
+          "question": "How long is the validity of Security Awareness training?",
+          "options": [
+            "1 year",
+            "2 years",
+            "5 years",
+            "No expiry (permanent)"
+          ],
+          "correct_answer": 3,
+          "explanation": "Security Awareness training certificates do not expire once obtained, though some companies may require refresher training."
+        },
+        {
+          "id": "s36",
+          "question": "What is ERM in maritime context?",
+          "options": [
+            "Emergency Response Manual",
+            "Engine Resource Management",
+            "Electronic Records Management",
+            "Environmental Risk Management"
+          ],
+          "correct_answer": 1,
+          "explanation": "ERM stands for Engine Resource Management, similar to BRM but for the engine room."
+        },
+        {
+          "id": "s37",
+          "question": "Which function includes Medical First Aid training?",
+          "options": [
+            "Navigation function",
+            "Cargo handling function",
+            "Controlling operation of ship and care for persons on board",
+            "Marine engineering function"
+          ],
+          "correct_answer": 2,
+          "explanation": "Medical First Aid is part of the function 'Controlling operation of the ship and care for persons on board'."
+        },
+        {
+          "id": "s38",
+          "question": "What is the minimum manning requirement based on?",
+          "options": [
+            "Owner's preference only",
+            "Safe manning document issued by flag state",
+            "Captain's decision",
+            "Port state requirements only"
+          ],
+          "correct_answer": 1,
+          "explanation": "The Safe Manning Document, issued by the flag state, specifies the minimum crew required for safe operation."
+        },
+        {
+          "id": "s39",
+          "question": "What does CoC stand for?",
+          "options": [
+            "Code of Conduct",
+            "Certificate of Compliance",
+            "Certificate of Competency",
+            "Chain of Command"
+          ],
+          "correct_answer": 2,
+          "explanation": "CoC stands for Certificate of Competency, the main qualification certificate for officers."
+        },
+        {
+          "id": "s40",
+          "question": "Which training is NOT part of Basic Safety Training?",
+          "options": [
+            "Personal Survival Techniques",
+            "Advanced Fire Fighting",
+            "Elementary First Aid",
+            "Personal Safety and Social Responsibilities"
+          ],
+          "correct_answer": 1,
+          "explanation": "Advanced Fire Fighting is a separate advanced training, not part of Basic Safety Training (BST)."
+        }
+      ]
     }
   ]
 }

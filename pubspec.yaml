@@ -1,7 +1,7 @@
-name: lightvisu
-description: "A new Flutter project."
+name: deckmate
+description: "Maritime navigation and sailing quiz application. Learn and practice sailing rules with interactive 3D vessel visualizations."
 publish_to: 'none'
-version: 0.1.0
+version: 1.0.0+1
 
 environment:
   sdk: ^3.9.2
@@ -10,6 +10,8 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_bloc: ^9.1.1
+  get_it: ^7.6.0
+  shared_preferences: ^2.2.2
 
 dev_dependencies:
   flutter_test:
@@ -21,3 +23,5 @@ flutter:
   assets:
     - assets/vessel_config.json
     - assets/sailing_quiz.json
+    - assets/img/icons/logoDeckMate.png
+    - assets/legal/

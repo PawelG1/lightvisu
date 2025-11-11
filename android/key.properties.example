@@ -1,0 +1,25 @@
+# Android Signing Key Configuration
+# DO NOT COMMIT THIS FILE TO GIT - It contains sensitive data!
+#
+# This file is used to sign the Android release APK/AAB for Google Play
+#
+# To generate a new keystore:
+# keytool -genkey -v -keystore key.jks -keyalg RSA -keysize 2048 -validity 10950 -alias deckmate_key
+#
+# Instructions:
+# 1. Run the command above in the android/ directory
+# 2. Fill in the keystore password, key password, and other details when prompted
+# 3. Fill in the values below:
+#
+# IMPORTANT: Store this file securely and keep backups of the keystore!
+
+storePassword=YOUR_KEYSTORE_PASSWORD_HERE
+keyPassword=YOUR_KEY_PASSWORD_HERE
+keyAlias=deckmate_key
+storeFile=key.jks
+
+# Example (DO NOT USE):
+# storePassword=mySecurePassword123!
+# keyPassword=myKeyPassword456!
+# keyAlias=deckmate_key
+# storeFile=key.jks

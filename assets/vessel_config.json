@@ -42,14 +42,14 @@
       "lights": [
         {
           "id": "masthead_forward",
-          "name": "Masthead (forward)",
+          "name": "Masthead (forward bow)",
           "color": "white",
           "mode": "steady",
           "sector_deg": { "start": -112.5, "end": 112.5 },
-          "position_expr": { "x": 0.25, "y": 0.0, "z": 0.35 },
+          "position_expr": { "x": 1.0, "y": 0.0, "z": 1.33 },
           "position_units": "fractions_of_{L,B,H}",
           "position_of": { "x_of": "L", "y_of": "B", "z_of": "H" },
-          "mounting_hint": "above all other lights, unobstructed"
+          "mounting_hint": "on bow mast, above all other lights"
         },
         {
           "id": "sidelight_starboard",
@@ -57,9 +57,10 @@
           "color": "green",
           "mode": "steady",
           "sector_deg": { "start": -112.5, "end": 0.0 },
-          "position_expr": { "x": 0.35, "y": 0.45, "z": 0.15 },
+          "position_expr": { "x": -0.78, "y": -0.625, "z": 0.67 },
           "position_units": "fractions_of_{L,B,H}",
-          "position_of": { "x_of": "L", "y_of": "B", "z_of": "H" }
+          "position_of": { "x_of": "L", "y_of": "B", "z_of": "H" },
+          "mounting_hint": "on stern cabin, starboard side"
         },
         {
           "id": "sidelight_port",
@@ -67,9 +68,10 @@
           "color": "red",
           "mode": "steady",
           "sector_deg": { "start": 0.0, "end": 112.5 },
-          "position_expr": { "x": 0.35, "y": -0.45, "z": 0.15 },
+          "position_expr": { "x": -0.78, "y": 0.625, "z": 0.67 },
           "position_units": "fractions_of_{L,B,H}",
-          "position_of": { "x_of": "L", "y_of": "B", "z_of": "H" }
+          "position_of": { "x_of": "L", "y_of": "B", "z_of": "H" },
+          "mounting_hint": "on stern cabin, port side"
         },
         {
           "id": "sternlight",
@@ -77,20 +79,22 @@
           "color": "white",
           "mode": "steady",
           "sector_deg": { "start": 112.5, "end": 247.5 },
-          "position_expr": { "x": -0.48, "y": 0.0, "z": 0.25 },
+          "position_expr": { "x": -1.22, "y": 0.0, "z": 0.67 },
           "position_units": "fractions_of_{L,B,H}",
-          "position_of": { "x_of": "L", "y_of": "B", "z_of": "H" }
+          "position_of": { "x_of": "L", "y_of": "B", "z_of": "H" },
+          "mounting_hint": "on stern, rear light"
         },
         {
           "id": "optional_second_masthead",
-          "name": "Masthead (aft, optional)",
+          "name": "Masthead (aft stern, optional)",
           "required": false,
           "color": "white",
           "mode": "steady",
           "sector_deg": { "start": -112.5, "end": 112.5 },
-          "position_expr": { "x": -0.15, "y": 0.0, "z": 0.55 },
+          "position_expr": { "x": -0.87, "y": 0.0, "z": 2.61 },
           "position_units": "fractions_of_{L,B,H}",
-          "position_of": { "x_of": "L", "y_of": "B", "z_of": "H" }
+          "position_of": { "x_of": "L", "y_of": "B", "z_of": "H" },
+          "mounting_hint": "on stern mast, optional higher light"
         }
       ]
     },
@@ -107,7 +111,7 @@
           "color": "green",
           "mode": "steady",
           "sector_deg": { "start": -112.5, "end": 0.0 },
-          "position_expr": { "x": 0.35, "y": 0.45, "z": 0.15 },
+          "position_expr": { "x": -0.78, "y": -0.625, "z": 0.67 },
           "position_units": "fractions_of_{L,B,H}",
           "position_of": { "x_of": "L", "y_of": "B", "z_of": "H" }
         },
@@ -117,7 +121,7 @@
           "color": "red",
           "mode": "steady",
           "sector_deg": { "start": 0.0, "end": 112.5 },
-          "position_expr": { "x": 0.35, "y": -0.45, "z": 0.15 },
+          "position_expr": { "x": -0.78, "y": 0.625, "z": 0.67 },
           "position_units": "fractions_of_{L,B,H}",
           "position_of": { "x_of": "L", "y_of": "B", "z_of": "H" }
         },
@@ -127,7 +131,7 @@
           "color": "white",
           "mode": "steady",
           "sector_deg": { "start": 112.5, "end": 247.5 },
-          "position_expr": { "x": -0.48, "y": 0.0, "z": 0.25 },
+          "position_expr": { "x": -1.22, "y": 0.0, "z": 0.67 },
           "position_units": "fractions_of_{L,B,H}",
           "position_of": { "x_of": "L", "y_of": "B", "z_of": "H" }
         }
@@ -146,7 +150,7 @@
           "color": "white",
           "mode": "steady",
           "sector_deg": { "start": 0, "end": 360 },
-          "position_expr": { "x": 0.10, "y": 0.0, "z": 0.50 },
+          "position_expr": { "x": -0.87, "y": 0.0, "z": 2.61 },
           "position_units": "fractions_of_{L,B,H}",
           "position_of": { "x_of": "L", "y_of": "B", "z_of": "H" }
         }
@@ -155,59 +159,57 @@
 
     "fishing_trawling_upto_50m": {
       "notes": [
-        "Vessel engaged in trawling (COLREG Rule 26).",
-        "Two all-round lights in vertical line: upper green, lower white.",
-        "When making way: sidelights and sternlight as per normal vessel.",
-        "Optional: may show second masthead light aft and higher than all-round lights."
+        "Trawling: green upper, white lower, plus sidelights and sternlight",
+        "Purse seining: red upper, white lower, plus sidelights and sternlight"
       ],
       "lights": [
         {
-          "id": "all_round_green_upper",
-          "name": "All-round green (upper)",
+          "id": "trawling_upper",
+          "name": "Trawling upper light (green)",
           "color": "green",
           "mode": "steady",
           "sector_deg": { "start": 0, "end": 360 },
-          "position_expr": { "x": 0.15, "y": 0.0, "z": 0.50 },
+          "position_expr": { "x": -0.87, "y": 0.0, "z": 3.0 },
           "position_units": "fractions_of_{L,B,H}",
           "position_of": { "x_of": "L", "y_of": "B", "z_of": "H" }
         },
         {
-          "id": "all_round_white_lower",
-          "name": "All-round white (lower)",
+          "id": "trawling_lower",
+          "name": "Trawling lower light (white)",
           "color": "white",
           "mode": "steady",
           "sector_deg": { "start": 0, "end": 360 },
-          "position_expr": { "x": 0.15, "y": 0.0, "z": 0.35 },
-          "position_units": "fractions_of_{L,B,H}",
-          "position_of": { "x_of": "L", "y_of": "B", "z_of": "H" }
-        },
-        {
-          "id": "sidelight_starboard",
-          "name": "Starboard sidelight",
-          "color": "green",
-          "mode": "steady",
-          "sector_deg": { "start": -112.5, "end": 0.0 },
-          "position_expr": { "x": 0.35, "y": 0.45, "z": 0.15 },
+          "position_expr": { "x": -0.87, "y": 0.0, "z": 2.4 },
           "position_units": "fractions_of_{L,B,H}",
           "position_of": { "x_of": "L", "y_of": "B", "z_of": "H" }
         },
         {
           "id": "sidelight_port",
-          "name": "Port sidelight",
+          "name": "Sidelight (port)",
           "color": "red",
           "mode": "steady",
-          "sector_deg": { "start": 0.0, "end": 112.5 },
-          "position_expr": { "x": 0.35, "y": -0.45, "z": 0.15 },
+          "sector_deg": { "start": 270, "end": 180 },
+          "position_expr": { "x": -0.78, "y": 0.625, "z": 0.67 },
           "position_units": "fractions_of_{L,B,H}",
           "position_of": { "x_of": "L", "y_of": "B", "z_of": "H" }
         },
         {
-          "id": "sternlight",
-          "name": "Sternlight",
-          "color": "white",
+          "id": "sidelight_starboard",
+          "name": "Sidelight (starboard)",
+          "color": "green",
           "mode": "steady",
-          "sector_deg": { "start": 112.5, "end": 247.5 },
-          "position_expr": { "x": -0.48, "y": 0.0, "z": 0.25 },
+          "sector_deg": { "start": 0, "end": 90 },
+          "position_expr": { "x": -0.78, "y": -0.625, "z": 0.67 },
+          "position_units": "fractions_of_{L,B,H}",
+          "position_of": { "x_of": "L", "y_of": "B", "z_of": "H" }
+        },
+        {
+          "id": "sidelight_port",
+          "name": "Sidelight (port)",
+          "color": "red",
+          "mode": "steady",
+          "sector_deg": { "start": 270, "end": 180 },
+          "position_expr": { "x": -0.78, "y": 0.625, "z": 0.67 },
           "position_units": "fractions_of_{L,B,H}",
           "position_of": { "x_of": "L", "y_of": "B", "z_of": "H" }
         }
@@ -227,7 +229,7 @@
           "color": "red",
           "mode": "steady",
           "sector_deg": { "start": 0, "end": 360 },
-          "position_expr": { "x": 0.10, "y": 0.0, "z": 0.50 },
+          "position_expr": { "x": -0.87, "y": 0.0, "z": 3.0 },
           "position_units": "fractions_of_{L,B,H}",
           "position_of": { "x_of": "L", "y_of": "B", "z_of": "H" }
         },
@@ -237,7 +239,7 @@
           "color": "red",
           "mode": "steady",
           "sector_deg": { "start": 0, "end": 360 },
-          "position_expr": { "x": 0.10, "y": 0.0, "z": 0.35 },
+          "position_expr": { "x": -0.87, "y": 0.0, "z": 2.4 },
           "position_units": "fractions_of_{L,B,H}",
           "position_of": { "x_of": "L", "y_of": "B", "z_of": "H" }
         },
@@ -247,7 +249,7 @@
           "color": "green",
           "mode": "steady",
           "sector_deg": { "start": -112.5, "end": 0.0 },
-          "position_expr": { "x": 0.35, "y": 0.45, "z": 0.15 },
+          "position_expr": { "x": -0.78, "y": -0.625, "z": 0.67 },
           "position_units": "fractions_of_{L,B,H}",
           "position_of": { "x_of": "L", "y_of": "B", "z_of": "H" },
           "mounting_hint": "only when making way"
@@ -258,7 +260,7 @@
           "color": "red",
           "mode": "steady",
           "sector_deg": { "start": 0.0, "end": 112.5 },
-          "position_expr": { "x": 0.35, "y": -0.45, "z": 0.15 },
+          "position_expr": { "x": -0.78, "y": 0.625, "z": 0.67 },
           "position_units": "fractions_of_{L,B,H}",
           "position_of": { "x_of": "L", "y_of": "B", "z_of": "H" },
           "mounting_hint": "only when making way"
@@ -269,7 +271,7 @@
           "color": "white",
           "mode": "steady",
           "sector_deg": { "start": 112.5, "end": 247.5 },
-          "position_expr": { "x": -0.48, "y": 0.0, "z": 0.25 },
+          "position_expr": { "x": -1.22, "y": 0.0, "z": 0.67 },
           "position_units": "fractions_of_{L,B,H}",
           "position_of": { "x_of": "L", "y_of": "B", "z_of": "H" },
           "mounting_hint": "only when making way"
@@ -291,7 +293,7 @@
           "color": "red",
           "mode": "steady",
           "sector_deg": { "start": 0, "end": 360 },
-          "position_expr": { "x": 0.10, "y": 0.0, "z": 0.60 },
+          "position_expr": { "x": -0.87, "y": 0.0, "z": 3.4 },
           "position_units": "fractions_of_{L,B,H}",
           "position_of": { "x_of": "L", "y_of": "B", "z_of": "H" }
         },
@@ -301,7 +303,7 @@
           "color": "white",
           "mode": "steady",
           "sector_deg": { "start": 0, "end": 360 },
-          "position_expr": { "x": 0.10, "y": 0.0, "z": 0.45 },
+          "position_expr": { "x": -0.87, "y": 0.0, "z": 2.8 },
           "position_units": "fractions_of_{L,B,H}",
           "position_of": { "x_of": "L", "y_of": "B", "z_of": "H" }
         },
@@ -311,7 +313,7 @@
           "color": "red",
           "mode": "steady",
           "sector_deg": { "start": 0, "end": 360 },
-          "position_expr": { "x": 0.10, "y": 0.0, "z": 0.30 },
+          "position_expr": { "x": -0.87, "y": 0.0, "z": 2.2 },
           "position_units": "fractions_of_{L,B,H}",
           "position_of": { "x_of": "L", "y_of": "B", "z_of": "H" }
         },
@@ -321,7 +323,7 @@
           "color": "white",
           "mode": "steady",
           "sector_deg": { "start": -112.5, "end": 112.5 },
-          "position_expr": { "x": 0.25, "y": 0.0, "z": 0.25 },
+          "position_expr": { "x": 1.0, "y": 0.0, "z": 1.33 },
           "position_units": "fractions_of_{L,B,H}",
           "position_of": { "x_of": "L", "y_of": "B", "z_of": "H" },
           "mounting_hint": "only when making way"
@@ -332,7 +334,7 @@
           "color": "green",
           "mode": "steady",
           "sector_deg": { "start": -112.5, "end": 0.0 },
-          "position_expr": { "x": 0.35, "y": 0.45, "z": 0.15 },
+          "position_expr": { "x": -0.78, "y": -0.625, "z": 0.67 },
           "position_units": "fractions_of_{L,B,H}",
           "position_of": { "x_of": "L", "y_of": "B", "z_of": "H" },
           "mounting_hint": "only when making way"
@@ -343,7 +345,7 @@
           "color": "red",
           "mode": "steady",
           "sector_deg": { "start": 0.0, "end": 112.5 },
-          "position_expr": { "x": 0.35, "y": -0.45, "z": 0.15 },
+          "position_expr": { "x": -0.78, "y": 0.625, "z": 0.67 },
           "position_units": "fractions_of_{L,B,H}",
           "position_of": { "x_of": "L", "y_of": "B", "z_of": "H" },
           "mounting_hint": "only when making way"
@@ -354,7 +356,7 @@
           "color": "white",
           "mode": "steady",
           "sector_deg": { "start": 112.5, "end": 247.5 },
-          "position_expr": { "x": -0.48, "y": 0.0, "z": 0.25 },
+          "position_expr": { "x": -1.22, "y": 0.0, "z": 0.67 },
           "position_units": "fractions_of_{L,B,H}",
           "position_of": { "x_of": "L", "y_of": "B", "z_of": "H" },
           "mounting_hint": "only when making way"
@@ -376,7 +378,7 @@
           "color": "white",
           "mode": "steady",
           "sector_deg": { "start": 0, "end": 360 },
-          "position_expr": { "x": 0.10, "y": 0.0, "z": 0.50 },
+          "position_expr": { "x": -0.87, "y": 0.0, "z": 3.0 },
           "position_units": "fractions_of_{L,B,H}",
           "position_of": { "x_of": "L", "y_of": "B", "z_of": "H" }
         },
@@ -386,7 +388,7 @@
           "color": "red",
           "mode": "steady",
           "sector_deg": { "start": 0, "end": 360 },
-          "position_expr": { "x": 0.10, "y": 0.0, "z": 0.35 },
+          "position_expr": { "x": -0.87, "y": 0.0, "z": 2.4 },
           "position_units": "fractions_of_{L,B,H}",
           "position_of": { "x_of": "L", "y_of": "B", "z_of": "H" }
         },
@@ -397,7 +399,7 @@
           "color": "white",
           "mode": "steady",
           "sector_deg": { "start": -112.5, "end": 112.5 },
-          "position_expr": { "x": 0.25, "y": 0.0, "z": 0.30 },
+          "position_expr": { "x": 1.0, "y": 0.0, "z": 1.33 },
           "position_units": "fractions_of_{L,B,H}",
           "position_of": { "x_of": "L", "y_of": "B", "z_of": "H" },
           "mounting_hint": "optional when underway"
@@ -408,7 +410,7 @@
           "color": "green",
           "mode": "steady",
           "sector_deg": { "start": -112.5, "end": 0.0 },
-          "position_expr": { "x": 0.35, "y": 0.45, "z": 0.15 },
+          "position_expr": { "x": -0.78, "y": -0.625, "z": 0.67 },
           "position_units": "fractions_of_{L,B,H}",
           "position_of": { "x_of": "L", "y_of": "B", "z_of": "H" },
           "mounting_hint": "when underway"
@@ -419,7 +421,7 @@
           "color": "red",
           "mode": "steady",
           "sector_deg": { "start": 0.0, "end": 112.5 },
-          "position_expr": { "x": 0.35, "y": -0.45, "z": 0.15 },
+          "position_expr": { "x": -0.78, "y": 0.625, "z": 0.67 },
           "position_units": "fractions_of_{L,B,H}",
           "position_of": { "x_of": "L", "y_of": "B", "z_of": "H" },
           "mounting_hint": "when underway"
@@ -430,7 +432,7 @@
           "color": "white",
           "mode": "steady",
           "sector_deg": { "start": 112.5, "end": 247.5 },
-          "position_expr": { "x": -0.48, "y": 0.0, "z": 0.25 },
+          "position_expr": { "x": -1.22, "y": 0.0, "z": 0.67 },
           "position_units": "fractions_of_{L,B,H}",
           "position_of": { "x_of": "L", "y_of": "B", "z_of": "H" },
           "mounting_hint": "when underway"
@@ -453,7 +455,7 @@
           "color": "#0080FF",
           "mode": "flashing_50",
           "sector_deg": { "start": 0, "end": 360 },
-          "position_expr": { "x": 0.10, "y": 0.0, "z": 0.55 },
+          "position_expr": { "x": -0.87, "y": 0.0, "z": 2.61 },
           "position_units": "fractions_of_{L,B,H}",
           "position_of": { "x_of": "L", "y_of": "B", "z_of": "H" },
           "mounting_hint": "highest position, very visible"
@@ -464,7 +466,7 @@
           "color": "white",
           "mode": "steady",
           "sector_deg": { "start": -112.5, "end": 112.5 },
-          "position_expr": { "x": 0.25, "y": 0.0, "z": 0.35 },
+          "position_expr": { "x": 1.0, "y": 0.0, "z": 1.33 },
           "position_units": "fractions_of_{L,B,H}",
           "position_of": { "x_of": "L", "y_of": "B", "z_of": "H" }
         },
@@ -474,7 +476,7 @@
           "color": "green",
           "mode": "steady",
           "sector_deg": { "start": -112.5, "end": 0.0 },
-          "position_expr": { "x": 0.35, "y": 0.45, "z": 0.15 },
+          "position_expr": { "x": -0.78, "y": -0.625, "z": 0.67 },
           "position_units": "fractions_of_{L,B,H}",
           "position_of": { "x_of": "L", "y_of": "B", "z_of": "H" }
         },
@@ -484,7 +486,7 @@
           "color": "red",
           "mode": "steady",
           "sector_deg": { "start": 0.0, "end": 112.5 },
-          "position_expr": { "x": 0.35, "y": -0.45, "z": 0.15 },
+          "position_expr": { "x": -0.78, "y": 0.625, "z": 0.67 },
           "position_units": "fractions_of_{L,B,H}",
           "position_of": { "x_of": "L", "y_of": "B", "z_of": "H" }
         },
@@ -494,7 +496,7 @@
           "color": "white",
           "mode": "steady",
           "sector_deg": { "start": 112.5, "end": 247.5 },
-          "position_expr": { "x": -0.48, "y": 0.0, "z": 0.25 },
+          "position_expr": { "x": -1.22, "y": 0.0, "z": 0.67 },
           "position_units": "fractions_of_{L,B,H}",
           "position_of": { "x_of": "L", "y_of": "B", "z_of": "H" }
         }
@@ -516,7 +518,7 @@
           "color": "white",
           "mode": "steady",
           "sector_deg": { "start": -112.5, "end": 112.5 },
-          "position_expr": { "x": 0.25, "y": 0.0, "z": 0.45 },
+          "position_expr": { "x": 1.0, "y": 0.0, "z": 3.0 },
           "position_units": "fractions_of_{L,B,H}",
           "position_of": { "x_of": "L", "y_of": "B", "z_of": "H" }
         },
@@ -526,7 +528,7 @@
           "color": "white",
           "mode": "steady",
           "sector_deg": { "start": -112.5, "end": 112.5 },
-          "position_expr": { "x": 0.25, "y": 0.0, "z": 0.30 },
+          "position_expr": { "x": 1.0, "y": 0.0, "z": 2.4 },
           "position_units": "fractions_of_{L,B,H}",
           "position_of": { "x_of": "L", "y_of": "B", "z_of": "H" }
         },
@@ -536,7 +538,7 @@
           "color": "green",
           "mode": "steady",
           "sector_deg": { "start": -112.5, "end": 0.0 },
-          "position_expr": { "x": 0.35, "y": 0.45, "z": 0.15 },
+          "position_expr": { "x": -0.78, "y": -0.625, "z": 0.67 },
           "position_units": "fractions_of_{L,B,H}",
           "position_of": { "x_of": "L", "y_of": "B", "z_of": "H" }
         },
@@ -546,7 +548,7 @@
           "color": "red",
           "mode": "steady",
           "sector_deg": { "start": 0.0, "end": 112.5 },
-          "position_expr": { "x": 0.35, "y": -0.45, "z": 0.15 },
+          "position_expr": { "x": -0.78, "y": 0.625, "z": 0.67 },
           "position_units": "fractions_of_{L,B,H}",
           "position_of": { "x_of": "L", "y_of": "B", "z_of": "H" }
         },
@@ -556,7 +558,7 @@
           "color": "white",
           "mode": "steady",
           "sector_deg": { "start": 112.5, "end": 247.5 },
-          "position_expr": { "x": -0.48, "y": 0.0, "z": 0.20 },
+          "position_expr": { "x": -1.22, "y": 0.0, "z": 0.67 },
           "position_units": "fractions_of_{L,B,H}",
           "position_of": { "x_of": "L", "y_of": "B", "z_of": "H" }
         },
@@ -566,7 +568,7 @@
           "color": "yellow",
           "mode": "steady",
           "sector_deg": { "start": 112.5, "end": 247.5 },
-          "position_expr": { "x": -0.48, "y": 0.0, "z": 0.35 },
+          "position_expr": { "x": -1.22, "y": 0.0, "z": 1.33 },
           "position_units": "fractions_of_{L,B,H}",
           "position_of": { "x_of": "L", "y_of": "B", "z_of": "H" },
           "mounting_hint": "above sternlight, same sector"
@@ -589,7 +591,7 @@
           "color": "red",
           "mode": "steady",
           "sector_deg": { "start": 0, "end": 360 },
-          "position_expr": { "x": 0.05, "y": 0.0, "z": 0.60 },
+          "position_expr": { "x": -0.87, "y": 0.0, "z": 3.4 },
           "position_units": "fractions_of_{L,B,H}",
           "position_of": { "x_of": "L", "y_of": "B", "z_of": "H" }
         },
@@ -599,7 +601,7 @@
           "color": "white",
           "mode": "steady",
           "sector_deg": { "start": 0, "end": 360 },
-          "position_expr": { "x": 0.05, "y": 0.0, "z": 0.45 },
+          "position_expr": { "x": -0.87, "y": 0.0, "z": 2.8 },
           "position_units": "fractions_of_{L,B,H}",
           "position_of": { "x_of": "L", "y_of": "B", "z_of": "H" }
         },
@@ -609,7 +611,7 @@
           "color": "red",
           "mode": "steady",
           "sector_deg": { "start": 0, "end": 360 },
-          "position_expr": { "x": 0.05, "y": 0.0, "z": 0.30 },
+          "position_expr": { "x": -0.87, "y": 0.0, "z": 2.2 },
           "position_units": "fractions_of_{L,B,H}",
           "position_of": { "x_of": "L", "y_of": "B", "z_of": "H" }
         },
@@ -619,10 +621,10 @@
           "color": "red",
           "mode": "steady",
           "sector_deg": { "start": 0, "end": 360 },
-          "position_expr": { "x": 0.05, "y": -0.25, "z": 0.50 },
+          "position_expr": { "x": 1.0, "y": -0.625, "z": 3.0 },
           "position_units": "fractions_of_{L,B,H}",
           "position_of": { "x_of": "L", "y_of": "B", "z_of": "H" },
-          "mounting_hint": "marks obstructed side"
+          "mounting_hint": "marks obstructed side - upper"
         },
         {
           "id": "all_round_red_lower_obstructed",
@@ -630,10 +632,10 @@
           "color": "red",
           "mode": "steady",
           "sector_deg": { "start": 0, "end": 360 },
-          "position_expr": { "x": 0.05, "y": -0.25, "z": 0.35 },
+          "position_expr": { "x": 1.0, "y": -0.625, "z": 2.4 },
           "position_units": "fractions_of_{L,B,H}",
           "position_of": { "x_of": "L", "y_of": "B", "z_of": "H" },
-          "mounting_hint": "marks obstructed side"
+          "mounting_hint": "marks obstructed side - lower"
         },
         {
           "id": "all_round_green_upper_clear",
@@ -641,10 +643,10 @@
           "color": "green",
           "mode": "steady",
           "sector_deg": { "start": 0, "end": 360 },
-          "position_expr": { "x": 0.05, "y": 0.25, "z": 0.50 },
+          "position_expr": { "x": 1.0, "y": 0.625, "z": 3.0 },
           "position_units": "fractions_of_{L,B,H}",
           "position_of": { "x_of": "L", "y_of": "B", "z_of": "H" },
-          "mounting_hint": "marks clear side for passing"
+          "mounting_hint": "marks clear side for passing - upper"
         },
         {
           "id": "all_round_green_lower_clear",
@@ -652,7 +654,7 @@
           "color": "green",
           "mode": "steady",
           "sector_deg": { "start": 0, "end": 360 },
-          "position_expr": { "x": 0.05, "y": 0.25, "z": 0.35 },
+          "position_expr": { "x": 1.0, "y": 0.625, "z": 2.4 },
           "position_units": "fractions_of_{L,B,H}",
           "position_of": { "x_of": "L", "y_of": "B", "z_of": "H" },
           "mounting_hint": "marks clear side for passing"
@@ -675,7 +677,7 @@
           "color": "#0000FF",
           "mode": "flashing_50",
           "sector_deg": { "start": 0, "end": 360 },
-          "position_expr": { "x": 0.10, "y": 0.0, "z": 0.55 },
+          "position_expr": { "x": -0.87, "y": 0.0, "z": 2.61 },
           "position_units": "fractions_of_{L,B,H}",
           "position_of": { "x_of": "L", "y_of": "B", "z_of": "H" },
           "mounting_hint": "highest position for visibility"
@@ -686,7 +688,7 @@
           "color": "white",
           "mode": "steady",
           "sector_deg": { "start": -112.5, "end": 112.5 },
-          "position_expr": { "x": 0.25, "y": 0.0, "z": 0.35 },
+          "position_expr": { "x": 1.0, "y": 0.0, "z": 1.33 },
           "position_units": "fractions_of_{L,B,H}",
           "position_of": { "x_of": "L", "y_of": "B", "z_of": "H" }
         },
@@ -696,7 +698,7 @@
           "color": "green",
           "mode": "steady",
           "sector_deg": { "start": -112.5, "end": 0.0 },
-          "position_expr": { "x": 0.35, "y": 0.45, "z": 0.15 },
+          "position_expr": { "x": -0.78, "y": -0.625, "z": 0.67 },
           "position_units": "fractions_of_{L,B,H}",
           "position_of": { "x_of": "L", "y_of": "B", "z_of": "H" }
         },
@@ -706,7 +708,7 @@
           "color": "red",
           "mode": "steady",
           "sector_deg": { "start": 0.0, "end": 112.5 },
-          "position_expr": { "x": 0.35, "y": -0.45, "z": 0.15 },
+          "position_expr": { "x": -0.78, "y": 0.625, "z": 0.67 },
           "position_units": "fractions_of_{L,B,H}",
           "position_of": { "x_of": "L", "y_of": "B", "z_of": "H" }
         },
@@ -716,7 +718,7 @@
           "color": "white",
           "mode": "steady",
           "sector_deg": { "start": 112.5, "end": 247.5 },
-          "position_expr": { "x": -0.48, "y": 0.0, "z": 0.25 },
+          "position_expr": { "x": -1.22, "y": 0.0, "z": 0.67 },
           "position_units": "fractions_of_{L,B,H}",
           "position_of": { "x_of": "L", "y_of": "B", "z_of": "H" }
         }

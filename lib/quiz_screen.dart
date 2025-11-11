@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:lightvisu/models/sailing_quiz.dart';
+import 'package:deckmate/models/sailing_quiz.dart';
+import 'package:deckmate/quiz_topic_selector.dart';
 
 class QuizScreen extends StatefulWidget {
   const QuizScreen({super.key});
@@ -16,6 +17,7 @@ class _QuizScreenState extends State<QuizScreen> {
   int score = 0;
   bool showExplanation = false;
   bool quizComplete = false;
+  bool showingTopicSelector = true; // Show selector by default
 
   @override
   void initState() {
@@ -33,7 +35,8 @@ class _QuizScreenState extends State<QuizScreen> {
         }
       });
     } catch (e) {
-      print('Error loading quiz: $e');
+      // Error loading quiz - handled by error state in presentation layer
+      rethrow;
     }
   }
 
@@ -74,42 +77,88 @@ class _QuizScreenState extends State<QuizScreen> {
     });
   }
 
+  void _selectQuiz(Quiz quiz) {
+    setState(() {
+      selectedQuiz = quiz;
+      showingTopicSelector = false;
+      _resetQuiz();
+    });
+  }
+
+  void _backToTopicSelector() {
+    setState(() {
+      showingTopicSelector = true;
+      _resetQuiz();
+    });
+  }
+
   QuizQuestion get currentQuestion => selectedQuiz!.questions[currentQuestionIndex];
 
   @override
   Widget build(BuildContext context) {
+    // Show topic selector if loading or user wants to change topic
+    if (quizData == null) {
+      return Scaffold(
+        appBar: AppBar(title: const Text('Sailing Quiz')),
+        body: const Center(child: CircularProgressIndicator()),
+      );
+    }
+
+    if (showingTopicSelector) {
+      return QuizTopicSelector(
+        quizData: quizData!,
+        onQuizSelected: _selectQuiz,
+      );
+    }
+
     if (selectedQuiz == null) {
       return Scaffold(
-        appBar: AppBar(title: Text('Sailing Quiz')),
-        body: Center(child: CircularProgressIndicator()),
+        appBar: AppBar(title: const Text('Sailing Quiz')),
+        body: const Center(child: CircularProgressIndicator()),
       );
     }
 
     if (quizComplete) {
       return Scaffold(
-        appBar: AppBar(title: Text('Quiz Complete')),
+        appBar: AppBar(
+          title: const Text('Quiz Complete'),
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back),
+            onPressed: _backToTopicSelector,
+          ),
+        ),
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
+              const Text(
                 'Quiz Complete!',
                 style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Text(
                 'Your Score: $score / ${selectedQuiz!.questions.length}',
-                style: TextStyle(fontSize: 24),
+                style: const TextStyle(fontSize: 24),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Text(
                 '${(score * 100 / selectedQuiz!.questions.length).toStringAsFixed(1)}%',
-                style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold, color: Colors.green),
+                style: const TextStyle(
+                  fontSize: 28,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.green,
+                ),
               ),
-              SizedBox(height: 40),
+              const SizedBox(height: 40),
               ElevatedButton(
                 onPressed: _resetQuiz,
-                child: Text('Try Again'),
+                child: const Text('Try Again'),
+              ),
+              const SizedBox(height: 16),
+              ElevatedButton.icon(
+                onPressed: _backToTopicSelector,
+                icon: const Icon(Icons.arrow_back),
+                label: const Text('Choose Different Topic'),
               ),
             ],
           ),
@@ -121,10 +170,14 @@ class _QuizScreenState extends State<QuizScreen> {
       appBar: AppBar(
         title: Text(selectedQuiz!.title),
         centerTitle: true,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: _backToTopicSelector,
+        ),
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(16),
+          padding: const EdgeInsets.all(16),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -134,26 +187,26 @@ class _QuizScreenState extends State<QuizScreen> {
                 children: [
                   Text(
                     'Question ${currentQuestionIndex + 1} of ${selectedQuiz!.questions.length}',
-                    style: TextStyle(fontSize: 14, color: Colors.grey),
+                    style: const TextStyle(fontSize: 14, color: Colors.grey),
                   ),
                   Text(
                     'Score: $score',
-                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                    style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
                   ),
                 ],
               ),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               LinearProgressIndicator(
                 value: (currentQuestionIndex + 1) / selectedQuiz!.questions.length,
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
 
               // Question
               Text(
                 currentQuestion.question,
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
 
               // Options
               ...List.generate(currentQuestion.options.length, (index) {
@@ -171,20 +224,20 @@ class _QuizScreenState extends State<QuizScreen> {
                 }
 
                 return Padding(
-                  padding: EdgeInsets.only(bottom: 12),
+                  padding: const EdgeInsets.only(bottom: 12),
                   child: SizedBox(
                     width: double.infinity,
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         backgroundColor: buttonColor,
-                        padding: EdgeInsets.all(16),
+                        padding: const EdgeInsets.all(16),
                         disabledForegroundColor: Colors.black,
                         disabledBackgroundColor: buttonColor,
                       ),
                       onPressed: selectedAnswer == null ? () => _answerQuestion(index) : null,
                       child: Text(
                         currentQuestion.options[index],
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 16,
                           color: Colors.black,
                         ),
@@ -196,9 +249,9 @@ class _QuizScreenState extends State<QuizScreen> {
 
               // Explanation
               if (showExplanation) ...[
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 Container(
-                  padding: EdgeInsets.all(12),
+                  padding: const EdgeInsets.all(12),
                   decoration: BoxDecoration(
                     color: Colors.blue.shade50,
                     border: Border.all(color: Colors.blue),
@@ -207,22 +260,22 @@ class _QuizScreenState extends State<QuizScreen> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
+                      const Text(
                         'Explanation:',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 14,
                         ),
                       ),
-                      SizedBox(height: 8),
+                      const SizedBox(height: 8),
                       Text(
                         currentQuestion.explanation,
-                        style: TextStyle(fontSize: 14),
+                        style: const TextStyle(fontSize: 14),
                       ),
                     ],
                   ),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(

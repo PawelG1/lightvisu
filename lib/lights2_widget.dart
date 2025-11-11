@@ -123,122 +123,312 @@ class Ship3DPainter {
     // angle przychodzi w stopniach (0-360) ze slidera
     final Offset center = Offset(size.width / 2, size.height / 2);
 
-    // Górna część kadłuba (z = 15) - zwiększona wysokość
+    // KADŁUB - kontenerowiec ~30m długości
+    // Górna część kadłuba (pokład główny, z = 10)
     List<Point3D> topHull = [
-      // Dziobus - zaokrąglony (przód - X pozytywne)
-      Point3D(180, 0, 15),
-      Point3D(165, -9, 15),
-      Point3D(150, -15, 15),
-      Point3D(120, -18, 15),
-      // Burta lewa (szeroka)
-      Point3D(60, -30, 15),
-      Point3D(0, -36, 15),
-      Point3D(-60, -36, 15),
-      // Rafa (tył - X negatywne)
-      Point3D(-120, -30, 15),
-      Point3D(-135, -18, 15),
-      Point3D(-150, -9, 15),
-      Point3D(-165, 0, 15),
+      // Dziób (przód - X pozytywne) - ostry kształt
+      Point3D(150, 0, 10),
+      Point3D(140, -6, 10),
+      Point3D(125, -10, 10),
+      Point3D(100, -12, 10),
+      
+      // Burta lewa - równoległa
+      Point3D(50, -15, 10),
+      Point3D(0, -15, 10),
+      Point3D(-50, -15, 10),
+      Point3D(-100, -15, 10),
+      
+      // Rufa (tył - X negatywne) - kwadratowa
+      Point3D(-125, -12, 10),
+      Point3D(-135, -10, 10),
+      Point3D(-140, -5, 10),
+      Point3D(-140, 0, 10),
+      
       // Burta prawa (powrót)
-      Point3D(-150, 9, 15),
-      Point3D(-135, 18, 15),
-      Point3D(-120, 30, 15),
-      Point3D(-60, 36, 15),
-      Point3D(0, 36, 15),
-      Point3D(60, 30, 15),
-      Point3D(120, 18, 15),
-      Point3D(150, 15, 15),
-      Point3D(165, 9, 15),
-      Point3D(180, 0, 15),  // Zamknięcie
+      Point3D(-140, 5, 10),
+      Point3D(-135, 10, 10),
+      Point3D(-125, 12, 10),
+      Point3D(-100, 15, 10),
+      Point3D(-50, 15, 10),
+      Point3D(0, 15, 10),
+      Point3D(50, 15, 10),
+      Point3D(100, 12, 10),
+      Point3D(125, 10, 10),
+      Point3D(140, 6, 10),
+      Point3D(150, 0, 10),
     ];
 
-    // Dolna część kadłuba (z = -15) - zwiększona wysokość
+    // Dolna część kadłuba (dno, z = -12)
     List<Point3D> bottomHull = [
-      // Dziobus - zaokrąglony (przód - X pozytywne)
-      Point3D(180, 0, -15),
-      Point3D(165, -9, -15),
-      Point3D(150, -15, -15),
-      Point3D(120, -18, -15),
-      // Burta lewa
-      Point3D(60, -30, -15),
-      Point3D(0, -36, -15),
-      Point3D(-60, -36, -15),
-      // Rafa (tył - X negatywne)
-      Point3D(-120, -30, -15),
-      Point3D(-135, -18, -15),
-      Point3D(-150, -9, -15),
-      Point3D(-165, 0, -15),
-      // Burta prawa (powrót)
-      Point3D(-150, 9, -15),
-      Point3D(-135, 18, -15),
-      Point3D(-120, 30, -15),
-      Point3D(-60, 36, -15),
-      Point3D(0, 36, -15),
-      Point3D(60, 30, -15),
-      Point3D(120, 18, -15),
-      Point3D(150, 15, -15),
-      Point3D(165, 9, -15),
-      Point3D(180, 0, -15),  // Zamknięcie
+      Point3D(150, 0, -12),
+      Point3D(140, -5, -12),
+      Point3D(125, -9, -12),
+      Point3D(100, -11, -12),
+      Point3D(50, -12, -12),
+      Point3D(0, -12, -12),
+      Point3D(-50, -12, -12),
+      Point3D(-100, -12, -12),
+      Point3D(-125, -11, -12),
+      Point3D(-135, -9, -12),
+      Point3D(-140, -4, -12),
+      Point3D(-140, 0, -12),
+      Point3D(-140, 4, -12),
+      Point3D(-135, 9, -12),
+      Point3D(-125, 11, -12),
+      Point3D(-100, 12, -12),
+      Point3D(-50, 12, -12),
+      Point3D(0, 12, -12),
+      Point3D(50, 12, -12),
+      Point3D(100, 11, -12),
+      Point3D(125, 9, -12),
+      Point3D(140, 5, -12),
+      Point3D(150, 0, -12),
     ];
 
-    // Nadbudówka (superstructure) - pomniejszona, mniejsza wysokość
+    // NADBUDÓWKA przy rufie - mostek kapitański z kominem
     List<Point3D> superstructure = [
-      // Dół nadbudówki
-      Point3D(-90, -8, 15),
-      Point3D(-90, -8, 35),
-      Point3D(-40, -8, 35),
-      Point3D(-40, -8, 15),
-      // Prawo
-      Point3D(-40, 8, 15),
-      Point3D(-40, 8, 35),
-      Point3D(-90, 8, 35),
-      Point3D(-90, 8, 15),
+      // Przód nadbudówki (podstawa)
+      Point3D(-90, -12, 10),
+      Point3D(-90, -12, 25),
+      // Mostek kapitański (drugi poziom)
+      Point3D(-90, -10, 25),
+      Point3D(-90, -10, 38),
+      Point3D(-125, -10, 38),
+      Point3D(-125, -10, 25),
+      // Komin za mostkiem
+      Point3D(-115, -6, 25),
+      Point3D(-115, -6, 45),
+      Point3D(-105, -6, 45),
+      Point3D(-105, -6, 25),
+      // Kontynuacja - tył nadbudówki
+      Point3D(-130, -12, 25),
+      Point3D(-130, -12, 10),
+      
+      // Prawa strona (zwierciadlane odbicie)
+      Point3D(-130, 12, 10),
+      Point3D(-130, 12, 25),
+      // Komin prawa strona
+      Point3D(-105, 6, 25),
+      Point3D(-105, 6, 45),
+      Point3D(-115, 6, 45),
+      Point3D(-115, 6, 25),
+      // Mostek prawa strona
+      Point3D(-125, 10, 25),
+      Point3D(-125, 10, 38),
+      Point3D(-90, 10, 38),
+      Point3D(-90, 10, 25),
+      Point3D(-90, 12, 25),
+      Point3D(-90, 12, 10),
+      
       // Zamknięcie
-      Point3D(-90, -8, 15),
+      Point3D(-90, -12, 10),
     ];
 
-    // Dach nadbudówki - pomniejszony
+    // Dach nadbudówki (dach mostka + szczyt komina)
     List<Point3D> cabinRoof = [
-      Point3D(-90, -8, 35),
-      Point3D(-40, -8, 35),
-      Point3D(-40, 8, 35),
-      Point3D(-90, 8, 35),
-      Point3D(-90, -8, 35),
+      // Dach mostka kapitańskiego
+      Point3D(-95, -10, 38),
+      Point3D(-125, -10, 38),
+      Point3D(-125, 10, 38),
+      Point3D(-95, 10, 38),
+      Point3D(-95, -10, 38),
+      // Szczyt komina
+      Point3D(-115, -6, 45),
+      Point3D(-105, -6, 45),
+      Point3D(-105, 6, 45),
+      Point3D(-115, 6, 45),
+      Point3D(-115, -6, 45),
     ];
 
-    // Ściany łączące przód i tył - SKALOWANE 3x
+    // MASZT przy dziobie - z poprzeczką na światła (0.8x scale)
+    // Umieszczony na X=55 (0.478 * 115 ≈ 55), zgodnie z JSON config
+    List<Point3D> mastBow = [
+      // Pionowy maszt
+      Point3D(115, -0.8, 8),
+      Point3D(115, 0.8, 8),
+      Point3D(115, 0.8, 33),
+      Point3D(115, -0.8, 33),
+      Point3D(115, -0.8, 8),
+      // Poprzaczka masztu (wysięgnik na światła)
+      Point3D(115, -0.8, 8),
+      Point3D(115, -0.8, 24),
+      Point3D(115, -8, 24),
+      Point3D(115, 8, 24),
+      Point3D(115, 8, 26),
+      Point3D(115, -8, 26),
+      Point3D(115, -8, 24),
+    ];
+
+    // MASZT przy sterowce - bardziej szczupły
+    // Umieszczony na X=-50 (-0.435 * 115 ≈ -50), zgodnie z JSON config
+    List<Point3D> mastStern = [
+      // Pionowy maszt (mniejszy niż maszt dziobowy)
+      Point3D(-100, -0.8, 40),
+      Point3D(-100, 0.8, 40),
+      Point3D(-100, 0.8, 52),
+      Point3D(-100, -0.8, 52),
+      Point3D(-100, -0.8, 40),
+      // Poprzaczka masztu sterowego (mniejsza)
+      Point3D(-100, -0.8, 40),
+      Point3D(-100, -0.8, 47),
+      Point3D(-100, -5, 47),
+      Point3D(-100, 5, 47),
+      Point3D(-100, 5, 48),
+      Point3D(-100, -5, 48),
+      Point3D(-100, -5, 47),
+    ];
+
+    // Ściany łączące (wybrane punkty kadłuba)
     List<Point3D> connectingWalls = [
-      // Dziobus (przód - X pozytywne)
-      Point3D(180, 0, 10),
-      Point3D(180, 0, -10),
-      // Lewa burta przód
-      Point3D(120, -18, 10),
-      Point3D(120, -18, -10),
-      // Lewa burta środek
-      Point3D(0, -36, 10),
-      Point3D(0, -36, -10),
-      // Lewa burta tył
-      Point3D(-120, -30, 10),
-      Point3D(-120, -30, -10),
-      // Rafa (tył - X negatywne)
-      Point3D(-165, 0, 10),
-      Point3D(-165, 0, -10),
-      // Prawa burta tył
-      Point3D(-120, 30, 10),
-      Point3D(-120, 30, -10),
-      // Prawa burta środek
-      Point3D(0, 36, 10),
-      Point3D(0, 36, -10),
-      // Prawa burta przód
-      Point3D(120, 18, 10),
-      Point3D(120, 18, -10),
+      // Dziób
+      Point3D(150, 0, 10),
+      Point3D(150, 0, -12),
+      
+      // Burta lewa przód
+      Point3D(100, -12, 10),
+      Point3D(100, -12, -12),
+      
+      // Burta lewa środek
+      Point3D(0, -15, 10),
+      Point3D(0, -15, -12),
+      
+      // Burta lewa tył
+      Point3D(-100, -15, 10),
+      Point3D(-100, -15, -12),
+      
+      // Rufa
+      Point3D(-140, 0, 10),
+      Point3D(-140, 0, -12),
+      
+      // Burta prawa tył
+      Point3D(-100, 15, 10),
+      Point3D(-100, 15, -12),
+      
+      // Burta prawa środek
+      Point3D(0, 15, 10),
+      Point3D(0, 15, -12),
+      
+      // Burta prawa przód
+      Point3D(100, 12, 10),
+      Point3D(100, 12, -12),
     ];
 
-    // Światła - SKALOWANE 3x
-    List<Point3D> lights = [
-      Point3D(150, 0, 0),   // Przód - żółte (masthead)
-      Point3D(-150, 0, 0),    // Tył - białe (sternlight)
-    ];
+    // Inne struktury geometryczne...
+    // List<Point3D> topHull = [
+    //   // Dziobus - zaokrąglony (przód - X pozytywne)
+    //   Point3D(180, 0, 15),
+    //   Point3D(165, -9, 15),
+    //   Point3D(150, -15, 15),
+    //   Point3D(120, -18, 15),
+    //   // Burta lewa (szeroka)
+    //   Point3D(60, -30, 15),
+    //   Point3D(0, -36, 15),
+    //   Point3D(-60, -36, 15),
+    //   // Rafa (tył - X negatywne)
+    //   Point3D(-120, -30, 15),
+    //   Point3D(-135, -18, 15),
+    //   Point3D(-150, -9, 15),
+    //   Point3D(-165, 0, 15),
+    //   // Burta prawa (powrót)
+    //   Point3D(-150, 9, 15),
+    //   Point3D(-135, 18, 15),
+    //   Point3D(-120, 30, 15),
+    //   Point3D(-60, 36, 15),
+    //   Point3D(0, 36, 15),
+    //   Point3D(60, 30, 15),
+    //   Point3D(120, 18, 15),
+    //   Point3D(150, 15, 15),
+    //   Point3D(165, 9, 15),
+    //   Point3D(180, 0, 15),  // Zamknięcie
+    // ];
+
+    // // Dolna część kadłuba (z = -15) - zwiększona wysokość
+    // List<Point3D> bottomHull = [
+    //   // Dziobus - zaokrąglony (przód - X pozytywne)
+    //   Point3D(180, 0, -15),
+    //   Point3D(165, -9, -15),
+    //   Point3D(150, -15, -15),
+    //   Point3D(120, -18, -15),
+    //   // Burta lewa
+    //   Point3D(60, -30, -15),
+    //   Point3D(0, -36, -15),
+    //   Point3D(-60, -36, -15),
+    //   // Rafa (tył - X negatywne)
+    //   Point3D(-120, -30, -15),
+    //   Point3D(-135, -18, -15),
+    //   Point3D(-150, -9, -15),
+    //   Point3D(-165, 0, -15),
+    //   // Burta prawa (powrót)
+    //   Point3D(-150, 9, -15),
+    //   Point3D(-135, 18, -15),
+    //   Point3D(-120, 30, -15),
+    //   Point3D(-60, 36, -15),
+    //   Point3D(0, 36, -15),
+    //   Point3D(60, 30, -15),
+    //   Point3D(120, 18, -15),
+    //   Point3D(150, 15, -15),
+    //   Point3D(165, 9, -15),
+    //   Point3D(180, 0, -15),  // Zamknięcie
+    // ];
+
+    // // Nadbudówka (superstructure) - pomniejszona, mniejsza wysokość
+    // List<Point3D> superstructure = [
+    //   // Dół nadbudówki
+    //   Point3D(-90, -8, 15),
+    //   Point3D(-90, -8, 35),
+    //   Point3D(-40, -8, 35),
+    //   Point3D(-40, -8, 15),
+    //   // Prawo
+    //   Point3D(-40, 8, 15),
+    //   Point3D(-40, 8, 35),
+    //   Point3D(-90, 8, 35),
+    //   Point3D(-90, 8, 15),
+    //   // Zamknięcie
+    //   Point3D(-90, -8, 15),
+    // ];
+
+    // // Dach nadbudówki - pomniejszony
+    // List<Point3D> cabinRoof = [
+    //   Point3D(-90, -8, 35),
+    //   Point3D(-40, -8, 35),
+    //   Point3D(-40, 8, 35),
+    //   Point3D(-90, 8, 35),
+    //   Point3D(-90, -8, 35),
+    // ];
+
+    // // Ściany łączące przód i tył - SKALOWANE 3x
+    // List<Point3D> connectingWalls = [
+    //   // Dziobus (przód - X pozytywne)
+    //   Point3D(180, 0, 10),
+    //   Point3D(180, 0, -10),
+    //   // Lewa burta przód
+    //   Point3D(120, -18, 10),
+    //   Point3D(120, -18, -10),
+    //   // Lewa burta środek
+    //   Point3D(0, -36, 10),
+    //   Point3D(0, -36, -10),
+    //   // Lewa burta tył
+    //   Point3D(-120, -30, 10),
+    //   Point3D(-120, -30, -10),
+    //   // Rafa (tył - X negatywne)
+    //   Point3D(-165, 0, 10),
+    //   Point3D(-165, 0, -10),
+    //   // Prawa burta tył
+    //   Point3D(-120, 30, 10),
+    //   Point3D(-120, 30, -10),
+    //   // Prawa burta środek
+    //   Point3D(0, 36, 10),
+    //   Point3D(0, 36, -10),
+    //   // Prawa burta przód
+    //   Point3D(120, 18, 10),
+    //   Point3D(120, 18, -10),
+    // ];
+
+    // // Światła - SKALOWANE 3x
+    // List<Point3D> lights = [
+    //   Point3D(150, 0, 0),   // Przód - żółte (masthead)
+    //   Point3D(-150, 0, 0),    // Tył - białe (sternlight)
+    // ];
 
     void drawPath(List<Point3D> points, Canvas canvas, Paint paint, Matrix4 matrix, Offset center) {
       // Najpierw transformuj punkty 3D macierzą
@@ -317,6 +507,16 @@ class Ship3DPainter {
         ..strokeWidth = 1;
       drawPath(superstructure, canvas, paintSuperstructure, matrix, center);
 
+      // Rysuj maszt przy dziobie
+      final paintMast = Paint()
+        ..color = Colors.grey
+        ..style = PaintingStyle.stroke
+        ..strokeWidth = 2;
+      drawPath(mastBow, canvas, paintMast, matrix, center);
+
+      // Rysuj maszt przy sterownicy
+      drawPath(mastStern, canvas, paintMast, matrix, center);
+
       // Rysuj dach nadbudówki
       final paintRoof = Paint()
         ..color = Colors.amber
@@ -340,7 +540,16 @@ class Ship3DPainter {
       // Rysuj światła ze konfiguracji JSON
       debugPrint('🚢 Rendering vessel: ship heading=$angleDegrees°, observer global=$observerAngleGlobal°, observer local=${observerAngleLocal.toStringAsFixed(1)}°, lights=${vesselConfig.lights.length}');
       
-      for (final light in vesselConfig.lights) {
+      // Sortuj światła po Z malejąco - żeby wyższe były rysowane na wierzchu
+      final sortedLights = List<vessel_config.Light>.from(vesselConfig.lights);
+      sortedLights.sort((a, b) {
+        final aZ = a.position.z;
+        final bZ = b.position.z;
+        return bZ.compareTo(aZ); // Malejąco (wyższe najpierw)
+      });
+      
+      for (int lightIndex = 0; lightIndex < sortedLights.length; lightIndex++) {
+        final light = sortedLights[lightIndex];
         // Sektory w JSON są już w lokalnym układzie statku
         // NIE trzeba ich rotować, bo obserwator jest w lokalnym układzie
         final minAngle = light.sector.start;
@@ -378,76 +587,21 @@ class Ship3DPainter {
             ..color = lightColor
             ..style = PaintingStyle.fill;
           
-          canvas.drawCircle(lightOffset, 5, paintLight);
+          canvas.drawCircle(lightOffset, 3, paintLight);
           
           // Rysuj również lśniący efekt wokół światła
           final glowPaint = Paint()
             ..color = lightColor.withOpacity(0.3)
             ..style = PaintingStyle.stroke
             ..strokeWidth = 1;
-          canvas.drawCircle(lightOffset, 9, glowPaint);
+          canvas.drawCircle(lightOffset, 6, glowPaint);
         } else {
           debugPrint('❌ ${light.id}: sector [${minAngle.toStringAsFixed(1)}°, ${maxAngle.toStringAsFixed(1)}°] observer=${observerAngleLocal.toStringAsFixed(1)}° - NOT visible');
         }
       }
     } else {
-      // Fallback na hardkodowane światła jeśli nie ma konfiguracji
-      // Światło z przodu (żółte) - widoczne w sektorze 112.5° od dziobu (sektor: -112.5 do 112.5)
-      const mastheadMinAngle = -112.5;
-      const mastheadMaxAngle = 112.5;
-      
-      // Sprawdź czy obserwator jest w sektorze masthead
-      bool isInMastheadSector = _isAngleInSector(observerAngleLocal, mastheadMinAngle, mastheadMaxAngle);
-      
-      if (isInMastheadSector) {
-        List<Point3D> frontLight = [lights[0]];
-        final paintFrontLight = Paint()
-          ..color = Colors.yellow
-          ..style = PaintingStyle.fill;
-        
-        List<Point3D> transformedFront = frontLight.map((p) {
-          final v = matrix.transform3(Vector3(p.x, p.y, p.z));
-          return Point3D(v.x, v.y, v.z);
-        }).toList();
-        
-        List<Point> frontLight2D = transformedFront
-            .map((point) => point.point3Dto2D(Surfaces.xz, perspective: 500))
-            .toList();
-        
-        final frontLightOffset = Offset(
-          frontLight2D[0].x.toDouble() + center.dx,
-          frontLight2D[0].y.toDouble() + center.dy,
-        );
-        canvas.drawCircle(frontLightOffset, 6, paintFrontLight);
-      }
-
-      // Światło z tyłu (czerwone) - widoczne w sektorze 135° od rufy (sektor: 112.5 do 247.5)
-      const sternMinAngle = 112.5;
-      const sternMaxAngle = 247.5;
-      
-      bool isInSternSector = _isAngleInSector(observerAngleLocal, sternMinAngle, sternMaxAngle);
-      
-      if (isInSternSector) {
-        List<Point3D> rearLight = [lights[1]];
-        final paintRearLight = Paint()
-          ..color = Colors.red
-          ..style = PaintingStyle.fill;
-        
-        List<Point3D> transformedRear = rearLight.map((p) {
-          final v = matrix.transform3(Vector3(p.x, p.y, p.z));
-          return Point3D(v.x, v.y, v.z);
-        }).toList();
-        
-        List<Point> rearLight2D = transformedRear
-            .map((point) => point.point3Dto2D(Surfaces.xz, perspective: 500))
-            .toList();
-        
-        final rearLightOffset = Offset(
-          rearLight2D[0].x.toDouble() + center.dx,
-          rearLight2D[0].y.toDouble() + center.dy,
-        );
-        canvas.drawCircle(rearLightOffset, 6, paintRearLight);
-      }
+      // Fallback - ale normalnie nie powinno się wykonać bo zawsze jest vesselConfig
+      debugPrint('⚠️ No vesselConfig available - skipping lights');
     }
 
     canvas.restore();

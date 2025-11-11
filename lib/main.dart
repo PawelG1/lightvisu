@@ -1,73 +1,98 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:lightvisu/bloc/slider_cubit.dart';
-import 'package:lightvisu/lights2_widget.dart';
-import 'package:lightvisu/models/vessel_config_loader.dart';
-import 'package:lightvisu/models/vessel_config.dart' as vc;
-import 'package:lightvisu/quiz_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:deckmate/core/di/service_locator.dart';
+import 'package:deckmate/presentation/cubit/quiz/quiz_cubit.dart';
+import 'package:deckmate/presentation/cubit/visualization/visualization_cubit.dart';
+import 'package:deckmate/presentation/pages/visualization_page.dart';
+import 'package:deckmate/presentation/pages/quiz_page.dart';
+import 'package:deckmate/presentation/screens/terms_and_conditions_screen.dart';
+import 'package:deckmate/presentation/screens/settings_screen.dart';
 
-void main() {
-  runApp(MainApp());
+void main() async {
+  // IMPORTANT: Initialize WidgetsFlutterBinding BEFORE setupServiceLocator
+  // Because rootBundle (Assets) requires initialized binding
+  WidgetsFlutterBinding.ensureInitialized();
+  
+  // Initialize service locator
+  setupServiceLocator();
+  
+  // Initialize app data
+  await getIt<VisualizationCubit>().initialize();
+  await getIt<QuizCubit>().initialize();
+  
+  // Check if user has accepted terms and conditions
+  final prefs = await SharedPreferences.getInstance();
+  final termsAccepted = prefs.getBool('terms_accepted') ?? false;
+  
+  runApp(MainApp(termsAccepted: termsAccepted));
 }
 
 class MainApp extends StatefulWidget {
-  MainApp({super.key});
+  final bool termsAccepted;
+
+  const MainApp({
+    required this.termsAccepted,
+    super.key,
+  });
 
   @override
   State<MainApp> createState() => _MainAppState();
 }
 
 class _MainAppState extends State<MainApp> {
-  late SliderCubit sliderCubit;
-  bool showHull = true;
-  bool showBowArrow = true;
-  String selectedVesselType = 'power_driven_underway_upto_50m';
-  vc.VesselConfig? vesselConfig;
-  List<String> availableVesselTypes = [];
-  int _currentPage = 0; // 0 = Visualization, 1 = Quiz
+  int _currentPageIndex = 0;
+  late bool _termsAccepted;
 
   @override
   void initState() {
     super.initState();
-    sliderCubit = SliderCubit(90);
-    _loadVesselConfig();
-  }
-
-  Future<void> _loadVesselConfig() async {
-    try {
-      final config = await VesselConfigLoader.loadFromAssets('assets/vessel_config.json');
-      final types = await VesselConfigLoader.getAvailableVesselTypes('assets/vessel_config.json');
-      setState(() {
-        vesselConfig = config;
-        availableVesselTypes = types;
-        if (types.isNotEmpty && !types.contains(selectedVesselType)) {
-          selectedVesselType = types.first;
-        }
-      });
-    } catch (e) {
-      print('Error loading vessel config: $e');
-    }
-  }
-
-  @override
-  void dispose() {
-    sliderCubit.close();
-    super.dispose();
+    _termsAccepted = widget.termsAccepted;
   }
 
   @override
   Widget build(BuildContext context) {
+    // If terms not accepted, show Terms & Conditions screen
+    if (!_termsAccepted) {
+      return MaterialApp(
+        title: 'DeckMate',
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+          useMaterial3: true,
+        ),
+        home: TermsAndConditionsScreen(
+          onAccept: (accepted) async {
+            if (accepted) {
+              final prefs = await SharedPreferences.getInstance();
+              await prefs.setBool('terms_accepted', true);
+              setState(() {
+                _termsAccepted = true;
+              });
+            }
+          },
+        ),
+      );
+    }
+
+    // Main app - show after terms accepted
     return MaterialApp(
+      title: 'DeckMate',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+        useMaterial3: true,
+      ),
       home: Scaffold(
-        body: _currentPage == 0 ? _buildVisualizationPage() : QuizScreen(),
+        body: _buildPage(),
         bottomNavigationBar: BottomNavigationBar(
-          currentIndex: _currentPage,
+          currentIndex: _currentPageIndex,
           onTap: (index) {
             setState(() {
-              _currentPage = index;
+              _currentPageIndex = index;
             });
           },
-          items: [
+          items: const [
             BottomNavigationBarItem(
               icon: Icon(Icons.sailing),
               label: 'Visualization',
@@ -76,156 +101,32 @@ class _MainAppState extends State<MainApp> {
               icon: Icon(Icons.quiz),
               label: 'Quiz',
             ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.settings),
+              label: 'Settings',
+            ),
           ],
         ),
       ),
     );
   }
 
-  Widget _buildVisualizationPage() {
-    return SingleChildScrollView(
-      child: Center(
-        child: Column(
-          children: [
-            BlocBuilder(
-              bloc: sliderCubit,
-              builder: (context, state) {
-                vc.VesselType? currentVessel;
-                if (vesselConfig != null) {
-                  currentVessel = vesselConfig!.vessels[selectedVesselType];
-                }
+  Widget _buildPage() {
+    // Settings tab doesn't need BlocProvider
+    if (_currentPageIndex == 2) {
+      return const SettingsScreen();
+    }
 
-                return SingleChildScrollView(
-                  child: Column(
-                    children: [
-                      Lights2Widget(
-                        angle: state as double,
-                        showHull: showHull,
-                        showBowArrow: showBowArrow,
-                        vesselConfig: currentVessel,
-                        shipLength: 345.0,  // 115 * 3
-                        shipBeam: 72.0,     // 24 * 3
-                        shipHeight: 54.0,   // 18 * 3
-                      ),
-                      SizedBox(height: 20),
-                      Text("Heading: ${(state).toStringAsFixed(1)}°"),
-                      SizedBox(
-                        width: 400,
-                        child: Slider(
-                          min: 0,
-                          max: 360,
-                          divisions: 360,
-                          value: sliderCubit.state,
-                          onChanged: (val) {
-                            val = double.parse(val.toStringAsFixed(2));
-                            sliderCubit.change(val);
-                          },
-                        ),
-                      ),
-                      SizedBox(height: 20),
-                      Wrap(
-                        spacing: 8,
-                        children: [
-                          TextButton(onPressed: ()=>sliderCubit.change(270.0), child: Text("Front View")),
-                          TextButton(onPressed: ()=>sliderCubit.change(180.0), child: Text("Port Side")),
-                          TextButton(onPressed: ()=>sliderCubit.change(0.0), child: Text("Starboard Side")),
-                          TextButton(onPressed: ()=>sliderCubit.change(90.0), child: Text("Stern View")),
-                        ],
-                      ),
-                      SizedBox(height: 20),
-                      if (availableVesselTypes.isNotEmpty)
-                        DropdownButton<String>(
-                          value: selectedVesselType,
-                          items: availableVesselTypes.map((type) {
-                            return DropdownMenuItem(
-                              value: type,
-                              child: Text(type),
-                            );
-                          }).toList(),
-                          onChanged: (value) {
-                            if (value != null) {
-                              setState(() {
-                                selectedVesselType = value;
-                              });
-                            }
-                          },
-                        ),
-                      // Vessel information
-                      if (currentVessel != null && currentVessel.notes.isNotEmpty)
-                        Padding(
-                          padding: EdgeInsets.all(16),
-                          child: Container(
-                            constraints: BoxConstraints(maxWidth: 500),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Vessel Information:',
-                                  style: TextStyle(
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                SizedBox(height: 8),
-                                ...currentVessel.notes.map((note) => Padding(
-                                  padding: EdgeInsets.only(bottom: 4, left: 8),
-                                  child: Text(
-                                    '• $note',
-                                    style: TextStyle(fontSize: 12),
-                                    softWrap: true,
-                                  ),
-                                )).toList(),
-                              ],
-                            ),
-                          ),
-                        ),
-                      SizedBox(height: 20),
-                      Container(
-                        constraints: BoxConstraints(maxWidth: 500),
-                        child: Wrap(
-                          alignment: WrapAlignment.center,
-                          spacing: 16,
-                          runSpacing: 8,
-                          children: [
-                            Row(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                Checkbox(
-                                  value: showHull,
-                                  onChanged: (val) {
-                                    setState(() {
-                                      showHull = val ?? true;
-                                    });
-                                  },
-                                ),
-                                Text("Show Hull"),
-                              ],
-                            ),
-                            Row(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                Checkbox(
-                                  value: showBowArrow,
-                                  onChanged: (val) {
-                                    setState(() {
-                                      showBowArrow = val ?? true;
-                                    });
-                                  },
-                                ),
-                                Text("Show BOW Arrow"),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                );
-              },
-            )
-          ],
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<VisualizationCubit>.value(
+          value: getIt<VisualizationCubit>(),
         ),
-      ),
+        BlocProvider<QuizCubit>.value(
+          value: getIt<QuizCubit>(),
+        ),
+      ],
+      child: _currentPageIndex == 0 ? VisualizationPage() : QuizPage(),
     );
   }
 }

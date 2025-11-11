@@ -34,7 +34,7 @@ class VesselConfigLoader {
       final config = await loadFromAssets(assetPath);
       return config.vessels.keys.toList();
     } catch (e) {
-      print('Error getting vessel types: $e');
+      // Error loading vessel types - returns empty list
       return [];
     }
   }
