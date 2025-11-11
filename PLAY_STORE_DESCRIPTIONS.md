@@ -2,7 +2,7 @@
 
 ## SHORT DESCRIPTION (80 characters max)
 ```
-Maritime Navigation Lights Visualization & COLREG Reference
+Learn Maritime Navigation Lights - Interactive Training & Quizzes
 ```
 
 ---
@@ -10,16 +10,30 @@ Maritime Navigation Lights Visualization & COLREG Reference
 ## FULL DESCRIPTION (4000 characters max)
 
 ```
-DeckMate is a comprehensive maritime navigation lights visualization and reference tool designed for sailors, maritime professionals, and navigation enthusiasts.
+DeckMate is a comprehensive maritime navigation training application designed for sailors, maritime professionals, and anyone preparing for maritime certifications.
 
 🌊 FEATURES:
 
-📡 NAVIGATION LIGHTS VISUALIZATION
+📡 INTERACTIVE 3D VISUALIZATION
 • Real-time 3D visualization of vessel navigation lights
 • Supports 10+ vessel types (power-driven, sailing, fishing, dredging, etc.)
 • Interactive 360° rotation - see lights from all angles
 • Accurate positioning based on COLREG regulations
 • Visual identification of light patterns and sectors
+
+🧠 TRAINING & EDUCATION MODE
+• Step-by-step learning for each vessel type
+• Detailed explanations of light placement and purpose
+• Sector visualization showing where lights are visible
+• Learn at your own pace with interactive demonstrations
+
+❓ QUIZ MODE - TEST YOUR KNOWLEDGE
+• Multiple choice questions on navigation lights
+• Identify vessel types from light patterns
+• Learn COLREG regulations through quizzes
+• Track your progress and test scores
+• Perfect for RYA/maritime certification preparation
+• Difficulty levels (Beginner, Intermediate, Advanced)
 
 ⚓ VESSEL TYPES SUPPORTED
 • Power-driven vessels (up to 50m)
@@ -47,11 +61,13 @@ All light configurations strictly follow:
 • Flashing vs. steady light modes
 • Proportional scaling for different vessel sizes
 
-📚 EDUCATIONAL TOOL
-• Learn maritime navigation light patterns
-• Perfect for RYA/maritime certification preparation
+📚 COMPREHENSIVE LEARNING TOOL
+• Learn maritime navigation light patterns interactively
+• Test knowledge with quiz questions
+• Ideal for RYA Day Skipper, Coastal Skipper certification prep
 • Reference guide for navigation professionals
 • Helps mariners identify vessel types and status at sea
+• Build confidence before maritime exams
 
 🔧 TECHNICAL FEATURES
 • Smooth 3D graphics rendering
@@ -60,52 +76,58 @@ All light configurations strictly follow:
 • Lightweight and fast
 • Privacy-focused (no data collection)
 • Support for various screen sizes and orientations
+• Progress tracking and statistics
 
 ⚠️ DISCLAIMER
-This app is designed as an educational and reference tool. For actual maritime navigation, always follow official COLREG regulations and use certified navigation equipment. Consult official maritime publications and authorities for the most current navigation rules.
+This app is designed as an educational and training tool. For actual maritime navigation, always follow official COLREG regulations and use certified navigation equipment. Consult official maritime publications and authorities for the most current navigation rules.
 
 👨‍⚖️ SAFETY FIRST
 Mariners should never rely solely on this app for navigation. Always use approved nautical charts, electronic navigation aids, and follow bridge team procedures as per international maritime law.
 
-🌐 OPEN SOURCE
-DeckMate is developed with transparency and accuracy in mind. All light configurations are based on verified COLREG standards.
+🌐 PERFECT FOR
+✓ Maritime students and trainees
+✓ Sailing instructors teaching navigation lights
+✓ RYA certification candidates
+✓ Professional mariners refreshing knowledge
+✓ Navigation enthusiasts
+✓ Anyone interested in maritime safety
 
 PERMISSIONS EXPLAINED:
 • Camera: Not used
 • Location: Not used
 • Network: Optional (for updates)
-• Storage: Stores user preferences locally
+• Storage: Stores user progress and quiz scores
 
 For questions, feedback, or suggestions, please contact us.
 
-Happy sailing! ⛵
+Happy learning and sailing! ⛵
 ```
 
 ---
 
 ## PROMOTIONAL TEXT (80 characters)
 ```
-Learn maritime navigation lights with DeckMate - COLREG compliant visualizer
+Master navigation lights - Interactive training with 3D visualization & quizzes
 ```
 
 ---
 
 ## PROMOTIONAL TEXT 2 (80 characters)
 ```
-3D navigation lights visualization - Educational tool for maritime professionals
+Learn COLREG maritime lights - Training app with interactive quizzes included
 ```
 
 ---
 
 ## CATEGORY SUGGESTIONS
 - **Primary**: Education
-- **Secondary**: Reference, Navigation, Maritime
+- **Secondary**: Training, Navigation, Maritime, Reference
 
 ---
 
 ## TAGS / KEYWORDS (max 5)
 ```
-Maritime, Navigation, COLREG, Ships, Sailing
+Maritime Training, Navigation, COLREG, Quiz, Sailing
 ```
 
 ---
@@ -180,11 +202,20 @@ No (app-level only)
 ## ABOUT THIS APP - SAMPLE TEXT
 
 ```
-DeckMate helps maritime professionals and sailing enthusiasts understand and identify navigation light patterns through interactive 3D visualization.
+DeckMate is an interactive maritime training application that teaches navigation light patterns through 3D visualization and quiz-based learning.
 
 All light configurations strictly comply with COLREG (International Regulations for Preventing Collisions at Sea) and IMO standards.
 
-This is an educational reference tool - for actual navigation, always use certified equipment and official maritime regulations.
+Features:
+• 3D interactive visualization of 10+ vessel types
+• Quiz mode with multiple difficulty levels
+• Step-by-step training for each vessel type
+• Track progress and test scores
+• Works offline
+
+Perfect for maritime students, RYA certification prep, and sailing professionals.
+
+This is an educational training tool - for actual navigation, always use certified equipment and official maritime regulations.
 
 Version: 1.0.0
 Updated: November 2025
